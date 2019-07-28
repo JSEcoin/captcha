@@ -39,7 +39,7 @@ Instead of using techniques like virtual DOM diffing, Svelte writes code that su
   import JSEcaptcha from 'JSEcaptcha.svelte';
 </script>
 
-<JSEcaptcha theme="flat" size="M" on:success={() => console.log('On success!')} on:fail={() => console.log('On fail!')} />
+<JSEcaptcha theme="flat" size="M" on:success="{() => console.log('On success!')}" on:fail="{() => console.log('On fail!')}" />
 ```
 
 ### 2. All other Apps / Sites can use IIFE:
