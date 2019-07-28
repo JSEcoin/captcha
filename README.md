@@ -2,6 +2,10 @@
 
 **[JSECOIN](https://jsecoin.com/)** [THE FUTURE BLOCKCHAIN & ECOSYSTEM FOR ECOMMERCE AND DIGITAL ADVERTISING]
 
+## WARNING
+
+We are still working on the interface and know there are still a number of bugs and cross browser issues - please be patient.. in the meantime please use our original [captcha UI code from here](https://github.com/JSEcoin/server/tree/master/embed/captcha).
+
 ## Overview
 JSE Captcha is a free to use bot prevention tool. It can be used to protect content and endpoints from automated requests.
 
@@ -9,7 +13,7 @@ Official Release and Developer docs acan be found here: https://developer.jsecoi
 
 Setting up the captcha requires two parts, a code snippet on the web page and then a server-side verification check.
 
-#Server-side Verification
+Server-side Verification
 It is essential to check the captcha has been completed using server-side code to protect your endpoints. We do this using the clients IP address (IPV4) and the following URL: 
 
 ```
@@ -17,7 +21,9 @@ https://api.jsecoin.com/captcha/check/:ipAddress/
 ```
 
 ## Demo
-Check out our live [Platform](https://jsecoin.com/iCaptcha/).
+[Demo](https://jsecoin.com/iCaptcha/).
+
+PS.. Check out our live [Platform](https://platform.jsecoin.com/).
 
 ### Technology:
 
@@ -72,18 +78,19 @@ jseCaptcha.$on('fail', ({ detail }) => {
 ## Properties
 
 - **size** controls the UI display
-  - S - Small
-  - M - Medium
-  - L - Large
+  - 'S' - Small
+  - 'M' - Medium
+  - 'L' - Large
 - **theme** available themes
-  - flat - only one theme is currently available
+  - '' - dropshadow popup theme
+  - 'flat' - flat simple theme
 - **captchaServer** only used by devs for testing tweaking server side algorithms.
   - url of server (https://load.jsecoin.com)
 
 ## Events
 
-- **success** - Emitted on new selected location. `details` property contains a Leaflet lat/lng object.
-- **fail** - Emitted on save button click.
+- **success** - Emitted if user passes captcha bot detection tests.
+- **fail** - Emitted if user fails captcha bot detection tests.
 
 ## Event Response (JSON)
 
