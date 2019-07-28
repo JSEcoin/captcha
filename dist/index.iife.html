@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf8'>
+	<meta name='viewport' content='width=device-width'>
+
+	<title>JSE Captcha</title>
+
+	<!-- JSE Captcha Script -->
+	<script src='/jsecaptcha.iife.min.js'></script>
+	<!-- xJSE Captcha Script -->
+</head>
+
+<body>
+	<!-- Captcha target -->
+	<div id="captcha"></div>
+	<!-- xCaptcha target -->
+
+	<!-- Init Captcha -->
+	<script>
+		let jseCaptcha = new Jsecaptcha({
+			target: document.getElementById('captcha'),
+			props: {
+				size: 'S',
+				theme: 'flat',
+				//captchaServer: 'http://localhost:346',
+			}
+		});
+		
+		//success response
+		jseCaptcha.$on('success', ({ detail }) => {
+			console.log('Success: ', detail);
+		});
+		
+		//failed reponse
+		jseCaptcha.$on('fail', ({ detail }) => {
+			console.log('Fail: ', detail);
+		});
+	</script>
+	<!-- xInit Captcha -->
+</body>
+</html>
