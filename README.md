@@ -135,5 +135,9 @@ This is an initial push alot of cleanup is still required if you spot an issue p
 ## Contribute
 If you'd like to assist and help the team please first review our [Contribution Guidelines](./CONTRIBUTING.md).
 
+## Credits
+The component was originally created from the component project template by Yogev: https://github.com/YogliB/svelte-component-template
+
+
 ## License
 This project is under the [GNU General Public License v3.0](./LICENSE.md).
