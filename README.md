@@ -25,7 +25,7 @@ https://api.jsecoin.com/captcha/check/:ipAddress/
 
 PS.. Check out our live [Platform](https://platform.jsecoin.com/).
 
-### Technology:
+## Technology:
 
 JSE Captcha has been built with [Svelte](https://svelte.dev).
 
@@ -33,7 +33,7 @@ Svelte is a radical new approach to building user interfaces. Whereas traditiona
 
 Instead of using techniques like virtual DOM diffing, Svelte writes code that surgically updates the DOM when the state of your app changes.
 
-### ReUse in Svelte Apps
+### 1. Re-use in Svelte Apps
 ```html
 <script>
   import JSEcaptcha from 'JSEcaptcha.svelte';
@@ -42,7 +42,7 @@ Instead of using techniques like virtual DOM diffing, Svelte writes code that su
 <JSEcaptcha theme="flat" size="M" on:success={() => console.log('On success!')} on:fail={() => console.log('On fail!')} />
 ```
 
-### All other Apps / Sites can use IIFE:
+### 2. All other Apps / Sites can use IIFE:
 
 IIFE build:
 
@@ -104,12 +104,40 @@ jseCaptcha.$on('fail', ({ detail }) => {
 {"success":1,"rating":0,"pass":false,"knownIP":false, "ip":"148.252.129.187"}
 ```
 
+## Developers
+### Quickstart
+
+1. Install [Node.js](https://nodejs.org) v8.0.0 or higher.
+2. Clone this repository: `git clone https://github.com/JSEcoin/captcha`
+3. Install dependencies `npm install`
+
+### Init dev environment
+
+```bash
+npm run dev
+```
+
+Open browser to http://localhost:5000
+
+### Build
+
+```bash
+npm run build
+```
+
+Open /dist folder to locate build assets
+
+
 ## Bug Bounty
 This is an initial push alot of cleanup is still required if you spot an issue please report it and if we consider it a major issue we will credit your account as part of our bug bounty offering.
 [Bug Bounty Info Page](https://jsecoin.com/en/oddJobs/bugBounty)
 
 ## Contribute
 If you'd like to assist and help the team please first review our [Contribution Guidelines](./CONTRIBUTING.md).
+
+## Credits
+The component was originally created from the component project template by Yogev: https://github.com/YogliB/svelte-component-template
+
 
 ## License
 This project is under the [GNU General Public License v3.0](./LICENSE.md).
