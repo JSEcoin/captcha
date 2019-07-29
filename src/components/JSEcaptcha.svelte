@@ -10,6 +10,35 @@
 	M: Mecium captcha
 	success: displays success panel captcha must be minimised
 -->
+{#if debug}
+<dl>
+	<dt>Options</dt>
+	<dd>
+		<div id="JSE-DEBUG">
+			<div>
+				<label for="theme">
+					Theme
+				</label>
+				<select id="theme" bind:value="{theme}">
+					{#each availableThemes as selectedTheme, i}
+						<option>{selectedTheme}</option>
+					{/each}
+				</select>
+			</div>
+			<div>
+				<label for="size">
+					Size
+				</label>
+				<select id="size" bind:value="{size}">
+					{#each availableSize as selectedSize, i}
+						<option>{selectedSize}</option>
+					{/each}
+				</select>
+			</div>
+		</div>
+	</dd>
+</dl>
+{/if}
 
 <section id="JSE-Captcha" class="{theme} {size}" class:active="{showCaptcha}" class:success="{complete}" class:thinking="{thinking}">
 	<details class="captchaPanel" bind:open open>
@@ -35,7 +64,7 @@
 
 		<!-- Captcha Game -->
 		<div id="JSE-CaptchaDisplay">
-			<div id="JSE-captcha-game-container" on:mousemove="{handleMovement}" on:touchmove="{handleMovement}">
+			<div id="JSE-captcha-game-container" on:mousemove="{handleMovement}" on:touchmove|passive="{handleMovement}">
 			{#if open}	
 				<div id="JSE-captcha-game">
 					<Asteroids on:complete="{callbackFunction}" />
@@ -58,18 +87,29 @@
 
 	//Props
 	export let size = 'L';
+	export let debug = false;
 	export let theme = 'flat';
 	export let captchaServer = 'https://load.jsecoin.com';
 
 	//Events
 	const dispatch = createEventDispatcher();
-	
+
 	//Init captcha
 	let open = false;
 	let showCaptcha = false;
 	let captchaCheck = false;
 	let thinking = false;
 	let complete = false;
+
+	const availableThemes = [
+		'default',
+		'flat',
+	];
+	const availableSize = [
+		'S',
+		'M',
+		'L',
+	];
 
 	setTimeout(() => {
 		showCaptcha = true;
@@ -409,6 +449,46 @@
 
 <!-- IMPORTANT When developing add global attribute -->
 <style>
+
+dl {
+	font-family:arial;
+	box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.06);
+	border-radius:4px;
+    margin: 20px 0px 20px;
+    min-width: 200px;
+    max-width: 314px;
+}
+dt {
+    margin-top: -6px;
+    background: #fff;
+    /* display: inline-block; */
+    margin-left: 10px;
+    padding: 0px 10px;
+    float: left;
+    clear: both;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:10px;
+	letter-spacing:1px;
+	color:#666;
+}
+
+dd {
+    margin: 0px;
+    clear: both;
+    padding: 10px;
+}
+#JSE-DEBUG {
+	display:flex;
+}
+#JSE-DEBUG > div {
+	flex:1;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:11px;
+	letter-spacing:1px;
+	color:#666;
+}
 /**
 * FLAT
 **/
@@ -421,6 +501,7 @@
 	box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.06);
 }
 
+
 /****/
 
 
@@ -429,8 +510,6 @@
 **/
 #JSE-Captcha.S {
 	border-radius: 6px;
-	padding: 8px;
-	margin: 5px;
 	font-size: 11px;
 }
 
@@ -466,8 +545,6 @@
 **/
 #JSE-Captcha.M {
 	border-radius: 6px;
-	padding: 8px;
-	margin: 5px;
 	font-size: 16px;
 }
 
@@ -523,7 +600,6 @@
 	border-radius: 6px;
 	clear: both;
 	padding: 13px;
-	margin: 10px;
 	min-width: 200px;
 	max-width: 314px;
 	color: #707070;
