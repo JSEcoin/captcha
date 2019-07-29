@@ -11,7 +11,7 @@
 	success: displays success panel captcha must be minimised
 -->
 
-<section id="JSE-Captcha" class="{theme} {size}" class:active="{showCaptcha}" class:success="{complete}">
+<section id="JSE-Captcha" class="{theme} {size}" class:active="{showCaptcha}" class:success="{complete}" class:thinking="{thinking}">
 	<details class="captchaPanel" bind:open open>
 		<!-- Captcha Panel -->
 		<summary>
@@ -28,44 +28,7 @@
 			<!-- xInfo msg -->
 
 			<!-- JSE logo -->
-			<div id="JSE-brand">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1"
-					x="0px" y="0px" viewBox="0 0 1000 1000" style="white-space: preserve-spaces;">
-					<g filter="none" transform="translate(498,507) translate(-445.503,-500.996)"
-						style="animation: a0_t 3.6s linear infinite both;">
-						<path
-							d="M56.3,556L55.8,704.3C55.9,735.5,72.7,764.5,99.6,780.2L229.3,854.5C256,869.7,289,869.8,316.1,854.7L446.7,779.3C473.6,763.8,490.5,734.9,490.4,703.8L490.9,555.5C490.8,524.3,474,495.3,447.1,479.6L317.4,405.3C290.7,390.1,257.7,390,230.6,405.1L100,480.4C73.1,495.9,56.2,524.8,56.3,556ZM273.3,470L411.9,550.8L411.8,709.9L273.9,789.5L136,710L135.3,549.6L273.3,470Z"
-							transform="translate(-55.8,-0.0372215)"
-							style="animation: a1_t 3.6s linear infinite both;" />
-						<path
-							d="M510.2,556.3L509.7,704.6C509.8,735.8,526.6,764.8,553.5,780.5L683.2,854.8C709.9,870,742.9,870.1,770,855L900.6,779.6C927.5,764.1,944.4,735.2,944.3,704.1L944.8,555.8C944.7,524.6,927.9,495.6,901,479.9L771.3,405.6C744.6,390.4,711.6,390.3,684.5,405.4L553.9,480.8C527.1,496.3,510.2,525.1,510.2,556.3ZM727.2,470.4L865.8,551.2L865.7,710.3L727.8,789.9L590,710.4L589.3,550L727.2,470.4Z"
-							transform="translate(-55.8,-0.0372215)"
-							style="animation: a2_t 3.6s linear infinite both;" />
-						<path
-							d="M283,162.2L282.5,310.5C282.6,341.7,299.4,370.7,326.3,386.4L456,460.7C482.7,475.9,515.7,476,542.8,460.9L673.4,385.5C700.3,370,717.2,341.1,717.1,310L717.6,161.7C717.5,130.5,700.7,101.5,673.8,85.8L544.1,11.5C517.4,-3.7,484.4,-3.8,457.3,11.3L326.7,86.7C299.8,102.2,282.9,131,283,162.2ZM499.9,76.3L638.5,157L638.4,316.1L500.5,395.7L362.7,316.2L362,155.9L499.9,76.3Z"
-							transform="translate(-55.8,-0.0372215)"
-							style="animation: a3_t 3.6s linear infinite both;" />
-						<g transform="translate(-55.8,-0.0372215)">
-							<g>
-								<path
-									d="M585.3,817.8C529.4,832.6,470.5,832.6,414.6,817.7C407,815.7,398,820.2,396.1,828.2C394.3,836.1,398.5,844.5,406.6,846.7C467.5,862.9,532.3,862.9,593.2,846.8C601,844.7,605.8,836.1,603.7,828.3C601.6,820.4,593.2,815.8,585.3,817.8L585.3,817.8Z" />
-							</g>
-						</g>
-						<g transform="translate(-55.8,-0.0372215)">
-							<g>
-								<path
-									d="M181.1,413.6C196.2,357.5,225.7,306.7,266.6,265.6C272.3,259.9,272.3,250.1,266.6,244.4C260.9,238.7,251.1,238.6,245.4,244.4C201,289,168.5,344.8,152.2,405.6C150.2,413.2,154.7,422.2,162.7,424.1C170.5,425.9,178.9,421.7,181.1,413.6L181.1,413.6Z" />
-							</g>
-						</g>
-						<g transform="translate(-55.8,-0.0372215)">
-							<g>
-								<path
-									d="M733.4,265.5C774.4,306.6,803.8,357.4,818.9,413.5C821,421.3,829.6,426.1,837.4,424C845.3,421.8,850,413.4,847.9,405.5C831.5,344.7,799.1,288.8,754.6,244.2C748.9,238.5,739.1,238.5,733.4,244.2C727.6,250.1,727.6,259.8,733.4,265.5L733.4,265.5Z" />
-							</g>
-						</g>
-					</g>
-				</svg>
-			</div>
+			<div id="JSE-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71.771 69.931"><g transform="translate(0)"><path d="M55.84,406.929,55.8,418.9a7.144,7.144,0,0,0,3.536,6.128l10.471,6a7.15,7.15,0,0,0,7.007.016l10.543-6.087a7.039,7.039,0,0,0,3.528-6.1l.04-11.972a7.143,7.143,0,0,0-3.536-6.127l-10.471-6a7.15,7.15,0,0,0-7.007-.016l-10.543,6.079A7.043,7.043,0,0,0,55.84,406.929Zm17.519-6.943,11.189,6.523-.008,12.844L73.407,425.78l-11.133-6.418-.057-12.949Z" transform="translate(-55.8 -362.045)" fill="#51bfec"/><path d="M509.74,407.229,509.7,419.2a7.144,7.144,0,0,0,3.536,6.128l10.471,6a7.15,7.15,0,0,0,7.008.016l10.543-6.087a7.039,7.039,0,0,0,3.528-6.1l.04-11.972a7.144,7.144,0,0,0-3.536-6.128l-10.471-6a7.15,7.15,0,0,0-7.007-.016l-10.544,6.087A7.063,7.063,0,0,0,509.74,407.229Zm17.519-6.935,11.189,6.523-.008,12.844-11.133,6.426-11.125-6.418-.057-12.949Z" transform="translate(-473.056 -362.321)" fill="#51bfec"/><path d="M282.54,13.129,282.5,25.1a7.144,7.144,0,0,0,3.536,6.127l10.471,6a7.15,7.15,0,0,0,7.007.016l10.543-6.087a7.039,7.039,0,0,0,3.528-6.1l.04-11.972a7.144,7.144,0,0,0-3.536-6.127l-10.471-6a7.15,7.15,0,0,0-7.007-.016L286.068,7.034A7.03,7.03,0,0,0,282.54,13.129Zm17.511-6.935,11.189,6.515-.008,12.844L300.1,31.98l-11.125-6.418-.056-12.941Z" transform="translate(-264.198 -0.037)" fill="#51bfec"/><g transform="translate(27.44 65.973)"><path d="M411,817.273a26.851,26.851,0,0,1-13.781-.008,1.214,1.214,0,0,0-.646,2.341,29.5,29.5,0,0,0,15.064.008,1.239,1.239,0,0,0,.848-1.494,1.226,1.226,0,0,0-1.485-.848Z" transform="translate(-395.688 -817.227)" fill="#51bfec"/></g><g transform="translate(7.744 19.38)"><g transform="translate(0)"><path d="M154.1,254.1a26.8,26.8,0,0,1,6.9-11.948,1.21,1.21,0,1,0-1.712-1.712,29.257,29.257,0,0,0-7.524,13.014,1.21,1.21,0,1,0,2.333.646Z" transform="translate(-151.727 -240.087)" fill="#51bfec"/></g></g><g transform="translate(54.352 19.366)"><g transform="translate(0)"><path d="M729.4,241.99a26.72,26.72,0,0,1,6.9,11.948,1.214,1.214,0,1,0,2.341-.646,29.3,29.3,0,0,0-7.532-13.022,1.213,1.213,0,0,0-1.711,1.72Z" transform="translate(-729.05 -239.925)" fill="#51bfec"/></g></g></g></svg></div>
 			<!-- xJSE logo -->
 		</summary>
 		<!-- xCaptcha Panel -->
@@ -105,11 +68,16 @@
 	let open = false;
 	let showCaptcha = false;
 	let captchaCheck = false;
+	let thinking = false;
 	let complete = false;
 
 	setTimeout(() => {
 		showCaptcha = true;
 	}, 10);
+
+	$: if (open) {
+		complete = false;
+	}
 
 	//Mounted
 	onMount(() => {
@@ -400,7 +368,7 @@
 	 */
 	const submitMLData = (passCallback, failCallback) => {
 		const cleanDataString = prepMLData();
-
+		thinking = true;
 		requestURL({
             method: 'post',
 			url: `${captchaServer}/captcha/request/`,
@@ -411,6 +379,7 @@
         //success
         }).then((res) => {
 			console.log('[res][loadConf]',res);
+			thinking = false;
 			res = JSON.parse(res.content);
 			if ((res.pass) && (res.pass === true)) {
 				passCallback(res);
@@ -438,7 +407,7 @@
 
 
 
-
+<!-- IMPORTANT When developing add global attribute -->
 <style>
 /**
 * FLAT
@@ -470,12 +439,13 @@
 	min-width: 20px;
 	font-size: 15px;
 	border: solid 1px #D3D8DD;
-	padding: 2px;
+	padding: 1px;
 	margin: 6px;
 }
 
 #JSE-Captcha.S #JSE-brand {
 	width: 30px;
+    height: 38px;
 	border-left: solid 2px #F9F9F9;
 }
 
@@ -486,7 +456,9 @@
 #JSE-Captcha.S.flat details {
 	box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.06);
 }
-
+#JSE-Captcha.S.success #JSE-input {
+	min-width:52px;
+}
 /****/
 
 /**
@@ -502,7 +474,7 @@
 #JSE-Captcha.M #JSE-input {
 	height: 30px;
 	min-width: 30px;
-	font-size: 22px;
+	font-size: 20px;
 	border: solid 2px #D3D8DD;
 	margin: 8px;
 }
@@ -510,28 +482,31 @@
 #JSE-Captcha.M #JSE-brand {
 	width: 38px;
 	border-left: solid 2px #F9F9F9;
-
+	height:50px;
 }
 
 #JSE-Captcha.M #JSE-brand svg {
 	width: 34px;
-	margin-top: 4px;
 }
 
 #JSE-Captcha.M.flat details {
 	box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.06);
 }
-
+#JSE-Captcha.M.success #JSE-input {
+	min-width:70px;
+}
 /****/
 
 /**
 * LARGE
 **/
 #JSE-Captcha.L {}
-:global(#JSE-Captcha.L input#captchaCheck) {
-	width:30px;
-	height:30px;
-	margin:10px;
+
+#JSE-Captcha.success #JSE-input {
+	min-width:92px;
+}
+#JSE-Captcha #JSE-brand {
+	height:68px
 }
 /****/
 
@@ -539,6 +514,9 @@
 /**
 * BASE
 **/
+#captchaCheck { 
+	display:none;
+}
 #JSE-Captcha {
 	display:none;
 	background: #F2F8FF;
@@ -612,12 +590,27 @@
 	content: '😉';
 	opacity: 1;
 }
+#JSE-Captcha.failed details #JSE-input:before {
+	content: '🤖';
+	opacity: 1;
+}
 
+#JSE-Captcha.thinking details #JSE-input:before {
+	content: '🤡';
+	opacity: 1;
+}
 #JSE-Captcha.success details #JSE-input:after {
 	content: '✔';
 	opacity: 1;
 	color: #26AE60;
 	padding: 0px 4px 0px 5px;
+	border-left: solid 2px #D3D8DD;
+}
+
+#JSE-Captcha.failed details #JSE-input:after {
+	content: '⛔';
+	opacity: 1;
+	padding: 0px;
 	border-left: solid 2px #D3D8DD;
 }
 
@@ -658,7 +651,7 @@
 	background:#fff;
 }
 #JSE-Captcha.success #JSE-input {
-	min-width:52px;
+	min-width:92px;
 }
 #JSE-Captcha.success details.captchaPanel[open] #JSE-input {
 	min-width:20px;
@@ -685,8 +678,12 @@
 	border-left: solid 3px #F9F9F9;
 	align-self: center;
 	width: 60px;
+	height:68px;
 	padding: 0px 4px;
 	text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 #JSE-Captcha #JSE-brand svg {
@@ -734,6 +731,12 @@
 
 #JSE-Captcha.success details #JSE-msg>p:after {
 	content: 'Verified human';
+}
+#JSE-Captcha.failed details #JSE-msg>p:after {
+	content: 'Failed verification';
+}
+#JSE-Captcha.thinking details #JSE-msg>p:after {
+	content: 'Verifying ...';
 }
 
 #JSE-input input[type="checkbox"] {
