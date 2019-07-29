@@ -15,16 +15,26 @@
 	<dt>Options</dt>
 	<dd>
 		<div id="JSE-DEBUG">
-			<select bind:value="{theme}">
-				{#each availableThemes as selectedTheme, i}
-					<option>{selectedTheme}</option>
-				{/each}
-			</select>
-			<select bind:value="{size}">
-				{#each availableSize as selectedSize, i}
-					<option>{selectedSize}</option>
-				{/each}
-			</select>
+			<div>
+				<label for="theme">
+					Theme
+				</label>
+				<select id="theme" bind:value="{theme}">
+					{#each availableThemes as selectedTheme, i}
+						<option>{selectedTheme}</option>
+					{/each}
+				</select>
+			</div>
+			<div>
+				<label for="size">
+					Size
+				</label>
+				<select id="size" bind:value="{size}">
+					{#each availableSize as selectedSize, i}
+						<option>{selectedSize}</option>
+					{/each}
+				</select>
+			</div>
 		</div>
 	</dd>
 </dl>
@@ -54,7 +64,7 @@
 
 		<!-- Captcha Game -->
 		<div id="JSE-CaptchaDisplay">
-			<div id="JSE-captcha-game-container" on:mousemove="{handleMovement}" on:touchmove="{handleMovement}">
+			<div id="JSE-captcha-game-container" on:mousemove="{handleMovement}" on:touchmove|passive="{handleMovement}">
 			{#if open}	
 				<div id="JSE-captcha-game">
 					<Asteroids on:complete="{callbackFunction}" />
@@ -442,12 +452,11 @@
 
 dl {
 	font-family:arial;
-	border: solid 2px #D3D8DD;
-	border-radius:10px;
-	position: absolute;
-	right:10px;
-	top:10px;
-    margin: 6px 10px;
+	box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.06);
+	border-radius:4px;
+    margin: 20px 0px 20px;
+    min-width: 200px;
+    max-width: 314px;
 }
 dt {
     margin-top: -6px;
@@ -468,6 +477,17 @@ dd {
     margin: 0px;
     clear: both;
     padding: 10px;
+}
+#JSE-DEBUG {
+	display:flex;
+}
+#JSE-DEBUG > div {
+	flex:1;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:11px;
+	letter-spacing:1px;
+	color:#666;
 }
 /**
 * FLAT
@@ -490,7 +510,6 @@ dd {
 **/
 #JSE-Captcha.S {
 	border-radius: 6px;
-	padding: 8px;
 	font-size: 11px;
 }
 
@@ -526,7 +545,6 @@ dd {
 **/
 #JSE-Captcha.M {
 	border-radius: 6px;
-	padding: 8px;
 	font-size: 16px;
 }
 
