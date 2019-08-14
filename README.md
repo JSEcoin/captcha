@@ -55,7 +55,7 @@ IIFE build:
 Add component:
 
 ```javascript
-let jseCaptcha = new Jsecaptcha({
+var jseCaptcha = new Jsecaptcha({
     target: document.getElementById('captcha'), //injection point
     props: {
         size: 'S', // ['','S','M','L']
@@ -65,13 +65,13 @@ let jseCaptcha = new Jsecaptcha({
 });
 
 //success response
-jseCaptcha.$on('success', ({ detail }) => {
-    console.log('Success: ', detail);
+jseCaptcha.$on('success', (res) => {
+    console.log('Success: ', res.detail);
 });
 
 //failed reponse
-jseCaptcha.$on('fail', ({ detail }) => {
-    console.log('Fail: ', detail);
+jseCaptcha.$on('fail', (res) => {
+    console.log('Fail: ', res.detail);
 });
 ```
 
@@ -137,7 +137,7 @@ If you'd like to assist and help the team please first review our [Contribution 
 
 ## Credits
 The component was originally created from the component project template by Yogev: https://github.com/YogliB/svelte-component-template
-
+And extended to support ie11 with this approach https://github.com/angelozehr/svelte-example-museums - https://blog.az.sg/posts/svelte-and-ie11/ by Angelo
 
 ## License
 This project is under the [GNU General Public License v3.0](./LICENSE.md).
