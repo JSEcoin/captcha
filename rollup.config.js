@@ -3,8 +3,11 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+
+//pck
 import pkg from './package.json';
-import autoPreprocess from 'svelte-preprocess';
+//import autoPreprocess from 'svelte-preprocess';
+import json from 'rollup-plugin-json'
 import babel from 'rollup-plugin-babel';
 
 
@@ -45,33 +48,6 @@ const output = ((!production)
   ]
 );
 
-/*
-const outputUMD = ((!production)
-? {
-    sourcemap: true,
-    format: 'iife',
-    name: name,
-    file: 'public/jsecaptcha.iife.js'
-  }
-: [
-    { 
-      file: 'dist/jsecaptcha.umd.min.js', 
-      format: 'umd', 
-      name,
-      esModule: false
-     },
-  ]
-);
-
-export default [
-  {
-      input: input,
-      plugins: [terser()],
-      output: outputUMD
-  },
-];*/
-
-
 export default {
   input,
   output,
@@ -87,12 +63,14 @@ export default {
        * Auto preprocess supported languages with
        * '<template>'/'external src files' support
        **/
+      /*
       preprocess: autoPreprocess({
         postcss: true,
         scss: { includePaths: ['src', 'node_modules'] },
       }),
 
-			customElement: production,
+      customElement: production,
+      */
     }),
 
     // If you have external dependencies installed from
@@ -105,9 +83,39 @@ export default {
       include: ['node_modules/**'],
     }),
 
+    json(),
+
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
     !production && livereload('public'),
+
+    // compile to good old IE11 compatible ES5
+    babel({
+      extensions: [ '.js', '.mjs', '.html', '.svelte' ],
+      runtimeHelpers: true,
+      exclude: [ 'node_modules/@babel/**', 'node_modules/core-js/**' ],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: {
+              ie: '11'
+            },
+            useBuiltIns: 'usage',
+            corejs: 3
+          }
+        ]
+      ],
+      plugins: [
+        '@babel/plugin-syntax-dynamic-import',
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            useESModules: true
+          }
+        ]
+      ]
+    }),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify

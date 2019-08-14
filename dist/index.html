@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-gb">
 <head>
-	<meta charset='utf8'>
+	<meta charset="utf8">
 	<meta name="description" content="JSE CAPTCHA DEMO Page">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,7 +24,7 @@
 
 	<!-- Init Captcha -->
 	<script>
-		let jseCaptcha = new Jsecaptcha({
+		var jseCaptcha = new Jsecaptcha({
 			target: document.getElementById('captcha'),
 			props: {
 				size: 'L',
@@ -35,13 +35,13 @@
 		});
 		
 		//success response
-		jseCaptcha.$on('success', ({ detail }) => {
-			console.log('Success: ', detail);
+		jseCaptcha.$on('success', function(res) {
+			console.log('Success: ', res.detail);
 		});
 		
 		//failed reponse
-		jseCaptcha.$on('fail', ({ detail }) => {
-			console.log('Fail: ', detail);
+		jseCaptcha.$on('fail', function(res) {
+			console.log('Fail: ', res.detail);
 		});
 	</script>
 	<!-- xInit Captcha -->

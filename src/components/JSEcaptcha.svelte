@@ -449,7 +449,7 @@
 
 <!-- IMPORTANT When developing add global attribute -->
 <style>
-
+@charset "UTF-8";
 dl {
 	font-family:arial;
 	box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.06);
@@ -617,6 +617,7 @@ dd {
 	background: #fff;
 	border-radius: 4px;
 	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.12);
+	display:block;
 }
 
 #JSE-Captcha details summary {
